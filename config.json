@@ -1,0 +1,9 @@
+{
+  "hosts": [
+    { "name": "runpod", "url": "https://5ppdaszb3u11q4-8188.proxy.runpod.net" }
+  ],
+  "priority_ips": [],
+  "poll_interval_seconds": 3.0,
+  "enforce_priority_rules": true,
+  "listen": { "host": "0.0.0.0", "port": 8189 }
+}

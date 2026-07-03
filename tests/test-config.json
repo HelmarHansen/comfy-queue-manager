@@ -1,0 +1,10 @@
+{
+  "hosts": [
+    { "name": "mock", "url": "http://127.0.0.1:8288" },
+    { "name": "down", "url": "http://127.0.0.1:9999" }
+  ],
+  "priority_ips": [],
+  "poll_interval_seconds": 0.5,
+  "enforce_priority_rules": true,
+  "listen": { "host": "127.0.0.1", "port": 8189 }
+}

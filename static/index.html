@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ComfyUI Queue Manager</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>ComfyUI <span>Queue Manager</span></h1>
+    <nav id="host-filter">
+      <button class="filter-btn active" data-host="">Alle Hosts</button>
+      <!-- Host-Buttons werden per JS ergänzt -->
+    </nav>
+    <div class="header-right">
+      <span id="last-update" title="Letzte Aktualisierung">–</span>
+      <button id="refresh-btn" title="Sofort aktualisieren">⟳ Aktualisieren</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Queue-Ansicht: eine Karte pro Host -->
+    <section id="hosts"></section>
+
+    <!-- Verwaltung der Priority-IP-Regeln -->
+    <aside id="priority-panel">
+      <h2>Priority-IPs</h2>
+      <p class="hint">
+        Jobs dieser IPs werden automatisch immer an den Anfang bzw. das Ende
+        der Queue sortiert — beim Einreihen und bei jeder Queue-Änderung.
+      </p>
+      <ul id="rule-list"></ul>
+      <form id="rule-form">
+        <input type="text" id="rule-ip" placeholder="z. B. 192.168.1.50" required
+               pattern="[0-9a-fA-F:.]+" title="IPv4- oder IPv6-Adresse">
+        <select id="rule-mode">
+          <option value="front">immer nach vorne</option>
+          <option value="back">immer nach hinten</option>
+        </select>
+        <button type="submit">＋ Hinzufügen</button>
+      </form>
+    </aside>
+  </main>
+
+  <div id="toast" hidden></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
